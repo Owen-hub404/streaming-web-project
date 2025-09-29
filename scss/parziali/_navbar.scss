@@ -1,0 +1,82 @@
+#navbar {
+  background-color: black;
+  display: grid;
+  grid-template-columns: 0.3fr 2.5fr 0.5fr 1fr 0.3fr;
+  grid-template-areas: 
+  "logo     link    .   .   search";
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0 4%;
+  height: 68px;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  #logo {
+    grid-area: logo;
+    height: 40px;
+  }
+
+  #sfogliaBtn {
+    display: none;
+    cursor: pointer;
+
+    h3 {
+        color: white;
+        margin: 0;
+    }
+  }
+
+  #nav_links {
+    grid-area: link;
+    list-style: none;
+    display: flex; 
+    justify-content: start;
+    align-items: center;
+    flex-wrap: nowrap;  
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap; 
+
+    li a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 12px;
+
+      &:hover {
+        color: grey;
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  #search-container {
+    grid-area: search;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+
+    #search-icon {
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+
+  #genereContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+  }
+}
+
+#navbar.transparent {
+  background-color: transparent;
+}
+
+#navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.9);
+}

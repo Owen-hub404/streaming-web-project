@@ -1,0 +1,10 @@
+#categories {
+  padding: 0 50px;
+}
+#categories .category {
+  padding: 10px 0;
+}
+#categories .category img {
+  width: 230px;
+  margin-right: 4px;
+}

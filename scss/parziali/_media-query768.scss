@@ -1,0 +1,121 @@
+@media screen and (max-width: 768px) {
+
+  #navbar {
+    grid-template-columns: 0.3fr repeat(3, 1fr) 0.3fr;
+    grid-template-areas: 
+      "logo sfoglia . . search";
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+
+    #sfogliaBtn {
+      grid-area: sfoglia;
+      display: block; 
+      white-space: nowrap;
+      margin-left: 20px; 
+      font-weight: 500;
+    }
+
+    #nav_links {
+      margin-top: 15px;
+      border-top: white 2px solid;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 64px;
+      left: 10%;
+      width: 260px;
+      background-color: rgba(0, 0, 0, 0.90);
+      padding: 0;
+      gap: 0;
+
+      li {
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          background-color: hsla(0, 0%, 100%, 0.081);
+        }
+
+        a {
+          width: 100%;
+          color: grey;
+
+          &:hover {
+            transform: none;
+          }
+        }
+
+        #home {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .categories {
+    .carousel {
+      .film-container {
+        height: 12em;
+
+        .film-overlay {
+          opacity: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          padding-bottom: 5px;
+          border-radius: 0.3em;
+          transition: opacity 0.3s;
+
+          .film-buttons {
+            display: flex;
+            gap: 5px;
+
+            button {
+              padding: 4px 6px;
+              font-size: 0.7rem;
+            }
+          }
+
+          h4 {
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+          }
+        }
+
+        &:hover .film-overlay {
+          opacity: 1;
+        }
+      }
+
+      .search-result {
+        .film-overlay {
+          opacity: 0;
+        }
+
+        &:hover .film-overlay {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "social ."
+      "a c"
+      "b d"
+      "copyright .";
+  }
+}
+
+#navbar #nav_links.show {
+  display: flex;
+  flex-direction: column;
+}
