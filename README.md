@@ -30,10 +30,10 @@ Progetto accademico sviluppato con **HTML**, **SCSS/CSS** e **JavaScript**, ispi
 
 ```
 project-folder/
-│  login.html
+│  index.html          ← Pagina principale (login o home)
 │
 ├── html/
-│   ├── index.html
+│   ├── home.html      ← Vecchia homepage
 │   ├── film.html
 │   └── serieTV.html
 │
@@ -67,12 +67,18 @@ project-folder/
 
 ## 🌐 Demo Online
 
-
+Puoi vedere la demo del progetto direttamente su GitHub Pages:
+👉 [https://owen-hub404.github.io/streaming-web-project/](https://owen-hub404.github.io/streaming-web-project/)
 
 ---
 
 ## 📸 Screenshot
 
+
+![Login](screenShot/Login.png)
+![Homepage](screenShot/HomePage.png)
+![Film Page](screenShot/Film.png)
+![SerieTV Page](screenShot/SerieTv.png)
 
 
 ---
