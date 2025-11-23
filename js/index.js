@@ -28,7 +28,7 @@ document.getElementById("login-btn").addEventListener("click", () => {
     if (!valid) return;
 
     alert("Accesso effettuato con successo!");
-    window.location.href = "html/index.html";
+    window.location.href = "html/home.html";
 });
 
 // Bottone Registrati: sostituisce il contenuto con form di registrazione

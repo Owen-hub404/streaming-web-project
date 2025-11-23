@@ -545,8 +545,6 @@ footer .copyright {
   }
   .categories .carousel .film-container {
     height: 12em;
-    width: 40%;
-    margin-right: 5px;
   }
   .categories .carousel .film-container .film-overlay {
     opacity: 0;
