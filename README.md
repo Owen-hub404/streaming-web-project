@@ -80,7 +80,6 @@ Puoi vedere la demo del progetto direttamente su GitHub Pages:
 ![Film Page](screenShot/Film.png)
 ![SerieTV Page](screenShot/SerieTv.png)
 
-
 ---
 
 ## 🤝 Contributi
