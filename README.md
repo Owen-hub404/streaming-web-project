@@ -1,4 +1,24 @@
-# Streaming Web Project
+# 📺 Streaming Web Project
+
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
+
+---
+
+## 📑 Sommario
+- [Descrizione](#-descrizione-del-progetto)
+- [Funzionalità implementate](#-funzionalità-implementate)
+- [Tecnologie utilizzate](#-tecnologie-utilizzate)
+- [Struttura del progetto](#-struttura-del-progetto)
+- [Demo Online](#-demo-online)
+- [Screenshot](#-screenshot)
+- [Demo Animata](#-demo-animata)
+- [Contributi](#-contributi)
+- [Licenza](#-licenza)
+
+---
 
 ## 📌 Descrizione del progetto
 
