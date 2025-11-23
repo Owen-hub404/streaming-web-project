@@ -44,6 +44,7 @@ project-folder/
 │   ├── menu.png
 │   ├── search-icon.png
 │   └── social.png
+│   └── social.png
 │
 ├── js/
 │   ├── index.js
