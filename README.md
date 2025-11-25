@@ -22,7 +22,7 @@
 
 ## 📌 Descrizione del progetto
 
-Progetto accademico sviluppato con **HTML**, **SCSS/CSS** e **JavaScript**, ispirato alle moderne piattaforme di streaming. L’obiettivo è realizzare un'interfaccia responsive e moderna, con funzionalità simulate per la gestione dei contenuti.
+Progetto accademico ispirato alle moderne piattaforme di streaming. L’obiettivo è realizzare un'interfaccia responsive e moderna, con funzionalità simulate per la gestione dei contenuti.
 
 ---
 
