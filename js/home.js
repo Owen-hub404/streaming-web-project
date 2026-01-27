@@ -10,10 +10,13 @@
 // // quarta
 // const apiKey = "e81ba885";
 
+// // quinta
+// const apiKey = "390901e0";
 
 
-const OMDB_API_KEY = "390901e0"; 
-const YOUTUBE_API_KEY = "AIzaSyCWu6EsATgARl_rexVhUPwwQwPK6P_IpSo"; 
+
+const OMDB_API_KEY = "6ccb1147"; 
+const YOUTUBE_API_KEY = "AIzaSyDU-8SSdpT-kGqCfkao06JS_G-ehGK61yg"; 
 
 
 
@@ -422,21 +425,35 @@ function createModal(film) {
     if (modal) modal.remove();
 
     modal = document.createElement('div');
-    modal.className = 'modal modal--open'; 
-    document.body.appendChild(modal);
+    modal.className = 'modal modal--open';
+    Object.assign(modal.style, {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 3000,
+        overflowY: 'auto',
+        opacity: 0,
+        transition: 'opacity 0.3s ease'
+    });
 
     modal.innerHTML = `
-        <div class="modal-dialog d-flex m-auto">
-            <div class="modal-content m-auto">
+        <div class="modal-dialog d-flex m-auto" style="position: relative; max-width: 900px; width: 90%;">
+            <div class="modal-content m-auto" style="background-color:#141414; color:#fff; border-radius:8px; padding:20px; transform: scale(0.8); transition: transform 0.3s ease;">
                 <div class="modal-header">
                     <h5 class="modal-title fw-bold fs-1">${film.Title || "Titolo non disponibile"} (${film.Year || "N/A"})</h5>
                 </div>
                 <div class="modal-body p-0">
                     <div class="container-fluid">
                         <div class="row my-3">
-                            <div class="col-12 my-4" >
+                            <div class="col-12 my-4">
                                 <img src="${film.Poster !== 'N/A' ? film.Poster : 'img/image-not-found.png'}" 
-                                    class="modal-img img-fluid" alt="${film.Title}" />
+                                     class="modal-img img-fluid" alt="${film.Title}" />
                             </div>
                             <div class="col">
                                 <p><strong>Genere:</strong> ${film.Genre || "N/A"}</p>
@@ -455,12 +472,36 @@ function createModal(film) {
         </div>
     `;
 
-    modal.querySelector('.modal-close').addEventListener('click', () => {
-        modal.classList.add('modal-closing'); 
-        setTimeout(() => modal.remove(), 300); 
+    document.body.appendChild(modal);
+
+    // Blocca lo scroll del body
+    document.body.style.overflow = 'hidden';
+
+    // Animazione apertura
+    requestAnimationFrame(() => {
+        modal.style.opacity = 1;
+        modal.querySelector('.modal-content').style.transform = 'scale(1)';
     });
 
+    function chiudiModal() {
+        modal.style.opacity = 0;
+        modal.querySelector('.modal-content').style.transform = 'scale(0.8)';
+        setTimeout(() => {
+            modal.remove();
+            document.body.style.overflow = ''; // Riabilita scroll
+        }, 300);
+    }
+
+    modal.querySelector('.modal-close').addEventListener('click', chiudiModal);
+
+    modal.addEventListener('click', (e) => {
+        const dialog = modal.querySelector('.modal-content');
+        if (!dialog.contains(e.target)) {
+            chiudiModal();
+        }
+    });
 }
+
 
 function caricaDettagliFilm(imdbID) {
     const apiKey = `${OMDB_API_KEY}`;
@@ -473,7 +514,6 @@ function caricaDettagliFilm(imdbID) {
 }
 
 function openTrailerModal(trailerUrl) {
-    //Prende un URL del trailer come parametro (trailerUrl) e lo usa nell’iframe
     let trailerModal = document.querySelector('.trailer-modal');
     if (!trailerModal) {
         trailerModal = document.createElement('div');
@@ -488,13 +528,15 @@ function openTrailerModal(trailerUrl) {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            zIndex: '2000'
+            zIndex: '2000',
+            opacity: 0,
+            transition: 'opacity 0.3s ease'
         });
         document.body.appendChild(trailerModal);
     }
 
     trailerModal.innerHTML = `
-        <div style="position: relative; width: 80%; max-width: 900px;">
+        <div style="position: relative; width: 80%; max-width: 900px; transform: scale(0.8); transition: transform 0.3s ease;">
             <iframe width="100%" height="500" src="${trailerUrl}" 
                 title="Trailer" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <button class="btn btn-danger" style="position: absolute; top: 10px; right: 10px;">Chiudi</button>
@@ -502,9 +544,28 @@ function openTrailerModal(trailerUrl) {
     `;
 
     trailerModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Blocca scroll
 
-    trailerModal.querySelector('button').addEventListener('click', () => {
-        trailerModal.style.display = 'none';
-        trailerModal.querySelector('iframe').src = ""; 
+    requestAnimationFrame(() => {
+        trailerModal.style.opacity = 1;
+        trailerModal.querySelector('div').style.transform = 'scale(1)';
+    });
+
+    function chiudiTrailer() {
+        trailerModal.style.opacity = 0;
+        trailerModal.querySelector('div').style.transform = 'scale(0.8)';
+        setTimeout(() => {
+            trailerModal.style.display = 'none';
+            trailerModal.querySelector('iframe').src = "";
+            document.body.style.overflow = ''; // Riabilita scroll
+        }, 300);
+    }
+
+    trailerModal.querySelector('button').addEventListener('click', chiudiTrailer);
+
+    trailerModal.addEventListener('click', (e) => {
+        if (!trailerModal.querySelector('div').contains(e.target)) {
+            chiudiTrailer();
+        }
     });
 }

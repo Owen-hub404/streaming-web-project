@@ -1,5 +1,5 @@
 const OMDB_API_KEY = "390901e0"; 
-const YOUTUBE_API_KEY = "AIzaSyCWu6EsATgARl_rexVhUPwwQwPK6P_IpSo"; 
+const YOUTUBE_API_KEY = "AIzaSyDU-8SSdpT-kGqCfkao06JS_G-ehGK61yg"; 
 
 
 
